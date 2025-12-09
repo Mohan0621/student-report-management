@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="form-container">
+    <h1>Add Student</h1>
+
+    <form action="/students/add" method="post">
+
+        <input type="number" name="user_id" placeholder="User ID">
+
+        <input type="text" name="class" placeholder="Enter class" required>
+
+        <input type="text" name="roll_no" placeholder="Enter roll number">
+
+        <input type="text" name="parent_contact" placeholder="Parent contact" required>
+
+        <button type="submit">Add Student</button>
+
+        <p>
+            <a href="/students">Back to List</a>
+        </p>
+    </form>
+</div>
+
+</body>
+</html>

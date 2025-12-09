@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="form-container">
+    <h1>Edit Student</h1>
+
+    <form action="/students/edit/<%= student.id %>" method="post">
+
+        <input type="number" name="user_id" value="<%= student.user_id %>" placeholder="User ID">
+
+        <input type="text" name="class" value="<%= student.class %>" placeholder="Enter class" required>
+
+        <input type="text" name="roll_no" value="<%= student.roll_no %>" placeholder="Enter roll number">
+
+        <input type="text" name="parent_contact" value="<%= student.parent_contact %>" placeholder="Parent contact" required>
+
+        <button type="submit">Update Student</button>
+
+        <p>
+            <a href="/students">Back to List</a>
+        </p>
+    </form>
+</div>
+
+</body>
+</html>

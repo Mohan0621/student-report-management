@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .table-container {
+            width: 90%;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background: #6a11cb;
+            color: white;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .edit-btn { background: #3498db; }
+        .delete-btn { background: #e74c3c; }
+        .add-btn { background: #2ecc71; float: right; padding: 10px 15px; }
+    </style>
+</head>
+<body>
+
+<div class="table-container">
+    <h2>Student List</h2>
+
+    <a href="/students/add" class="btn add-btn">+ Add Student</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>User ID</th>
+                <th>Class</th>
+                <th>Roll No</th>
+                <th>Parent Contact</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% students.forEach(student => { %>
+            <tr>
+                <td><%= student.id %></td>
+                <td><%= student.user_id %></td>
+                <td><%= student.class %></td>
+                <td><%= student.roll_no %></td>
+                <td><%= student.parent_contact %></td>
+
+                <td>
+                    <a href="/students/edit/<%= student.id %>" class="btn edit-btn">Edit</a>
+                    <a href="/students/delete/<%= student.id %>" class="btn delete-btn">Delete</a>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+
+    </table>
+</div>
+
+</body>
+</html>
