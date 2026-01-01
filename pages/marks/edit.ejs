@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<div class="form-container">
+    <h1>Edit Marks</h1>
+
+    <form action="/marks/edit/<%= mark.id %>" method="post">
+
+        <!-- Student Dropdown -->
+        <select name="student_id" required>
+            <% students.forEach(s => { %>
+                <option value="<%= s.id %>" <%= s.id === mark.student_id ? 'selected' : '' %>>
+                    <%= s.id %> - Roll: <%= s.roll_no %>
+                </option>
+            <% }) %>
+        </select>
+
+        <!-- Subject Dropdown -->
+        <select name="subject_id" required>
+            <% subjects.forEach(sub => { %>
+                <option value="<%= sub.id %>" <%= sub.id === mark.subject_id ? 'selected' : '' %>>
+                    <%= sub.subject_name %>
+                </option>
+            <% }) %>
+        </select>
+
+        <input type="number" name="marks_obtained" value="<%= mark.marks_obtained %>" required>
+
+        <input type="number" name="total_marks" value="<%= mark.total_marks %>" required>
+
+        <input type="text" name="test_name" value="<%= mark.test_name %>" required>
+
+        <button type="submit">Update Marks</button>
+
+        <p><a href="/marks">Back to Marks List</a></p>
+
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        body {
+            background: #f5f5f5;
+        }
+
+        .dashboard-container {
+            width: 85%;
+            margin: 40px auto;
+        }
+
+        .title {
+            font-size: 30px;
+            font-weight: bold;
+            color: #6a11cb;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            width: 250px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            font-size: 40px;
+            color: #6a11cb;
+        }
+
+        .card p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .table-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th {
+            padding: 12px;
+            background: #6a11cb;
+            color: white;
+            font-size: 16px;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        h3 {
+            margin-top: 0;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <h1 class="title">Admin Dashboard</h1>
+
+    <!-- Stats Section -->
+    <div class="cards">
+
+        <div class="card">
+            <h2><%= total_students %></h2>
+            <p>Total Students</p>
+        </div>
+
+        <div class="card">
+            <h2><%= total_subjects %></h2>
+            <p>Total Subjects</p>
+        </div>
+
+        <div class="card">
+            <h2><%= total_marks %></h2>
+            <p>Total Marks Entries</p>
+        </div>
+
+    </div>
+
+    <!-- Latest Students Table -->
+    <div class="table-container">
+        <h3>Latest Enrolled Students</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Student Name</th>
+                    <th>Class</th>
+                    <th>Roll No</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% latest_students.forEach(st => { %>
+                <tr>
+                    <td><%= st.id %></td>
+                    <td><%= st.username %></td>
+                    <td><%= st.class %></td>
+                    <td><%= st.roll_no %></td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

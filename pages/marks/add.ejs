@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<div class="form-container">
+    <h1>Add Marks</h1>
+
+    <form action="/marks/add" method="post">
+
+        <!-- Student Dropdown -->
+        <select name="student_id" required>
+            <option value="">Select Student</option>
+            <% students.forEach(s => { %>
+                <option value="<%= s.id %>"><%= s.id %> - Roll: <%= s.roll_no %></option>
+            <% }) %>
+        </select>
+
+        <!-- Subject Dropdown -->
+        <select name="subject_id" required>
+            <option value="">Select Subject</option>
+            <% subjects.forEach(sub => { %>
+                <option value="<%= sub.id %>"><%= sub.subject_name %></option>
+            <% }) %>
+        </select>
+
+        <input type="number" name="marks_obtained" placeholder="Enter marks obtained" required>
+
+        <input type="number" name="total_marks" placeholder="Enter total marks" required>
+
+        <input type="text" name="test_name" placeholder="Test Name (e.g., Unit Test, Midterm)" required>
+
+        <button type="submit">Add Marks</button>
+
+        <p><a href="/marks">Back to Marks List</a></p>
+
+    </form>
+</div>
+
+</body>
+</html>

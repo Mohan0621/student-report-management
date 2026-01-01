@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="form-container">
+
+    <h1>Edit Subject</h1>
+
+    <form action="/subjects/edit/<%= subject.id %>" method="post">
+
+        <input type="text" name="subject_name" value="<%= subject.subject_name %>" required>
+
+        <input type="text" name="class_name" value="<%= subject.class %>" required>
+
+        <button type="submit">Update Subject</button>
+
+        <p><a href="/subjects">Back to Subject List</a></p>
+
+    </form>
+
+</div>
+
+</body>
+</html>

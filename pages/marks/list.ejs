@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        .table-container {
+            width: 85%;
+            margin: 50px auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.15);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #6a11cb;
+            color: white;
+            padding: 12px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .edit-btn { background: #3498db; }
+        .delete-btn { background: #e74c3c; }
+        .add-btn { background: #2ecc71; float: right; padding: 10px 15px; }
+    </style>
+</head>
+
+<body>
+
+<div class="table-container">
+    <h2>Marks List</h2>
+
+    <a href="/marks/add" class="btn add-btn">+ Add Marks</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Student ID</th>
+                <th>Subject ID</th>
+                <th>Marks</th>
+                <th>Total</th>
+                <th>Test Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% marks.forEach(mark => { %>
+            <tr>
+                <td><%= mark.id %></td>
+                <td><%= mark.student_id %></td>
+                <td><%= mark.subject_id %></td>
+                <td><%= mark.marks_obtained %></td>
+                <td><%= mark.total_marks %></td>
+                <td><%= mark.test_name %></td>
+                <td>
+                    <a href="/marks/edit/<%= mark.id %>" class="btn edit-btn">Edit</a>
+                    <a href="/marks/delete/<%= mark.id %>" class="btn delete-btn">Delete</a>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+
+    </table>
+</div>
+
+</body>
+</html>
